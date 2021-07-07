@@ -1,12 +1,12 @@
 import React from "react";
-import { AppProvider } from "./contexts/AppContext";
+import { PointsProvider } from "./contexts/PointsContext";
 import MainRouter from "./routes/MainRouter";
 
 function App() {
   return (
-    <AppProvider>
+    <PointsProvider>
       <MainRouter />
-    </AppProvider>
+    </PointsProvider>
   );
 }
 

@@ -6,13 +6,25 @@ import defaultFormRules from "utils/defaultFormRules";
 const StepFase1: React.FC = () => {
   return (
     <>
-      <Form.Item name="resposta_fase1" rules={defaultFormRules}>
+      <h2>
+        Quando o usuário e ou familiar se aproxima para conversar comigo,
+        geralmente...
+      </h2>
+      <Form.Item name="acolhimento" rules={defaultFormRules}>
         <Radio.Group>
           <Space direction="vertical">
-            <Radio value={1}>Option A</Radio>
-            <Radio value={2}>Option B</Radio>
-            <Radio value={3}>Option C</Radio>
-            <Radio value={4}>Option D</Radio>
+            <Radio value={0}>
+              escuto prestando atenção na pessoa (jeito de vestir, postura,
+              higiene)
+            </Radio>
+            <Radio value={25}>
+              escuto prestando atenção nos conteúdos do que o outro diz
+            </Radio>
+            <Radio value={50}>escuto atento as queixas/demandas do outro</Radio>
+            <Radio value={75}>escuto fazendo perguntas para entender</Radio>
+            <Radio value={100}>
+              escuto com curiosidade (atitude de não saber)
+            </Radio>
           </Space>
         </Radio.Group>
       </Form.Item>

@@ -6,13 +6,29 @@ import defaultFormRules from "utils/defaultFormRules";
 const StepFase2: React.FC = () => {
   return (
     <>
-      <Form.Item name="resposta_fase2" rules={defaultFormRules}>
+      <h2>
+        Durante meu contato com o usuário ou familiar, geralmente percebo que
+        tenho a...
+      </h2>
+      <Form.Item name="vinculo" rules={defaultFormRules}>
         <Radio.Group>
           <Space direction="vertical">
-            <Radio value={1}>Option A</Radio>
-            <Radio value={2}>Option B</Radio>
-            <Radio value={3}>Option C</Radio>
-            <Radio value={4}>Option D</Radio>
+            <Radio value={0}>
+              atitude de falar constantemente enquanto o outro/usuário só escuta
+            </Radio>
+            <Radio value={25}>
+              atitude de orientar e fazer perguntas se a pessoa compreendeu
+            </Radio>
+            <Radio value={50}>
+              atitude de acompanhar o outro nas fases do atendimento
+            </Radio>
+            <Radio value={75}>
+              atitude de acompanhar o desfecho do atendimento
+            </Radio>
+            <Radio value={100}>
+              atitude de compreender o paciente em suas ações e dar feedbacks
+              sobre suas próprias possibilidades de cuidado
+            </Radio>
           </Space>
         </Radio.Group>
       </Form.Item>
