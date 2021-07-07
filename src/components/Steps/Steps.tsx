@@ -1,6 +1,6 @@
 import React, { useState, useMemo, memo } from "react";
 import "./Steps.less";
-import { Button, Progress } from "antd";
+import { Button, Progress, Typography } from "antd";
 import { FormInstance } from "antd/lib/form";
 import Form from "antd/lib/form/Form";
 import { merge } from "lodash";
@@ -56,7 +56,7 @@ const Steps: React.FC<Props> = ({
 
   return (
     <div className="steps-container">
-      <h1>{currentStep.label}</h1>
+      <Typography.Title>{currentStep.label}</Typography.Title>
       <div className="steps-content">
         <Progress percent={percent} showInfo={false} />
         {index && (
