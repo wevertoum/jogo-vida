@@ -1,5 +1,3 @@
-import HomePage from "pages/HomePage";
-import NotFoundPage from "pages/NotFoundPage";
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -7,6 +5,8 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import HomePage from "../pages/HomePage";
+import NotFoundPage from "../pages/NotFoundPage";
 
 const MainRouter: React.FC = () => {
   return (

@@ -5,7 +5,7 @@ interface Props {}
 const HomePage: React.FC<Props> = () => {
   return (
     <>
-      <div className="main-content">aoooooooo</div>
+      <div className="main-content">a</div>
     </>
   );
 };

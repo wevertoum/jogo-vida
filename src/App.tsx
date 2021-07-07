@@ -1,11 +1,11 @@
 import React from "react";
-import { AppProvider } from "contexts/AppContext";
-import MainRouter from "routes/MainRouter";
+import { AppProvider } from "./contexts/AppContext";
+import MainRouter from "./routes/MainRouter";
 
 function App() {
   return (
     <AppProvider>
-        <MainRouter />
+      <MainRouter />
     </AppProvider>
   );
 }

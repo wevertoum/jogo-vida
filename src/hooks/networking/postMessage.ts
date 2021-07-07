@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import api from "utils/api";
+import api from "../../utils/api";
 
 export function usePostMessage() {
   return useCallback(async <O extends Object>(body?: {}, params?: O) => {

@@ -1,26 +1,40 @@
-import { BehaviorSubject } from "rxjs"; // remember to install rxjs dependency
 import { useCallback, useEffect, useState } from "react";
 import { skip } from "rxjs/operators";
+import Store from "../store";
+import createSharedStore from "./createSharedStore";
 
-const globalSubject = new BehaviorSubject<any>({});
+const globalStore = createSharedStore<any>({});
 
-type SetSharedStateAction<S> = (state: S) => void;
+type SetPartialSharedStateAction<S> = (state: S) => S;
+type SetSharedStateAction<S> = (
+  state: S | SetPartialSharedStateAction<S>
+) => void;
 
-export default function <T>(
-  subject: BehaviorSubject<T> = globalSubject
+const useSharedState = function <T>(
+  store: Store<T> = globalStore
 ): [T, SetSharedStateAction<T>] {
-  const [state, setState] = useState(subject.getValue());
+  const [state, setState] = useState(store.value);
 
   useEffect(() => {
-    const subscription = subject
+    const subscription = store
       .pipe(skip(1))
       .subscribe((data) => setState(data));
     return () => subscription.unsubscribe();
   });
 
-  const setStateProxy = useCallback((state: T) => subject.next(state), [
-    subject,
-  ]);
+  const setStateProxy = useCallback(
+    (state: T | SetPartialSharedStateAction<T>) => {
+      if (typeof state === "function") {
+        const getState: any = state;
+        store.next(getState(store.value));
+      } else {
+        store.next(state);
+      }
+    },
+    [store]
+  );
 
   return [state, setStateProxy];
-}
+};
+
+export default useSharedState;

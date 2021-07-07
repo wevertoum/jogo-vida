@@ -13,7 +13,7 @@ const TypingTexts: React.FC<Props> = ({ words }) => {
         eraseDelay={500}
         speed={300}
         typingDelay={500}
-        text={[words]}
+        text={words}
       />
     </div>
   );

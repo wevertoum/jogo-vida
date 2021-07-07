@@ -1,10 +1,11 @@
 import { useState, useEffect, useMemo } from "react";
-import hexString from "utils/hexString";
-import safeBase64 from "utils/safeBase64";
+import hexString from "../utils/hexString";
+import safeBase64 from "../utils/safeBase64";
+
 
 const { encode, decode } = safeBase64;
 
-export default function <T>(
+const useLocalStorage = function <T>(
   key: string,
   defaultValue: T
 ): [T, React.Dispatch<React.SetStateAction<T>>] {
@@ -32,3 +33,5 @@ export default function <T>(
 
   return [value, setValue];
 }
+
+export default useLocalStorage
