@@ -5,7 +5,9 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import HomePage from "../pages/HomePage";
+import BoasVindasPage from "../pages/BoasVindasPage";
+import InstrucoesPage from "pages/InstrucoesPage";
+import GamePage from "pages/GamePage";
 import NotFoundPage from "../pages/NotFoundPage";
 
 const MainRouter: React.FC = () => {
@@ -13,10 +15,16 @@ const MainRouter: React.FC = () => {
     <Router>
       <Switch>
         <Route exact path="/">
-          <HomePage />
+          <BoasVindasPage />
+        </Route>
+        <Route path="/instrucoes">
+          <InstrucoesPage />
+        </Route>
+        <Route path="/game">
+          <GamePage />
         </Route>
 
-        <Route path="/">
+        <Route path="/*">
           <Redirect to="/" />
         </Route>
         <Route component={NotFoundPage} />
