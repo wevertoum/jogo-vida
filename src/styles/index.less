@@ -21,9 +21,9 @@
 }
 
 @font-face {
-  font-family: "PressStart2P";
-  src: url("../assets/fonts/PressStart2P-Regular.woff2") format("woff2"),
-    url("../assets/fonts/PressStart2P-Regular.woff") format("woff");
+  font-family: "OtomanopeeOne";
+  src: url("../assets/fonts/OtomanopeeOne-Regular.woff2") format("woff2"),
+    url("../assets/fonts/OtomanopeeOne-Regular.woff") format("woff");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -33,7 +33,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: PressStart2P;
+  font-family: OtomanopeeOne;
 
   &::-webkit-scrollbar-track {
     background-color: var(--primary-color-shade) !important;
@@ -144,4 +144,14 @@ button:not(.ant-btn-circle),
   margin-bottom: unset !important;
   margin-left: 10px !important;
   font-size: @font-size-small !important;
+}
+
+.main-content-game-background {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  background-color: #4cd3ed;
 }

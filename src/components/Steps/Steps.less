@@ -1,0 +1,44 @@
+@import "~styles/variables.less";
+
+.steps-container {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 80vh;
+
+  @media screen and (max-width: 700px) {
+    width: 80%;
+    margin-top: 0px;
+  }
+
+  .steps-content {
+    box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.05);
+    background-color: white;
+    border-radius: 32px;
+    height: 60vh;
+    max-height: 60vh;
+    width: 100%;
+    overflow-y: scroll !important;
+    overflow-x: hidden;
+    padding: 16px 32px 16px 32px;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    @media screen and (max-width: 700px) {
+      height: 55vh;
+      max-height: 55vh;
+    }
+  }
+  .footer-buttons {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
+
+.ant-progress-bg {
+  background: var(--primary-color) !important;
+}
