@@ -5,11 +5,12 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
 import BoasVindasPage from "../pages/BoasVindasPage";
 import InstrucoesPage from "pages/InstrucoesPage";
 import GamePage from "pages/GamePage";
+import ResultadoPage from "pages/ResultadoPage";
 import NotFoundPage from "../pages/NotFoundPage";
-import { CSSTransition } from "react-transition-group";
 
 const MainRouter: React.FC = () => {
   return (
@@ -24,6 +25,9 @@ const MainRouter: React.FC = () => {
           </Route>
           <Route path="/game">
             <GamePage />
+          </Route>
+          <Route path="/resultado">
+            <ResultadoPage />
           </Route>
 
           <Route path="/*">

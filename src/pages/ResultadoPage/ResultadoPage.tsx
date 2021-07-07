@@ -1,29 +1,67 @@
 import PageContainer from "components/PageContainer/TypingTexts";
-import React from "react";
+import PointsContext from "contexts/PointsContext";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { PolarArea } from "react-chartjs-2";
 import "./ResultadoPage.less";
 
 interface Props {}
 const ResultadoPage: React.FC<Props> = () => {
+  const { points } = useContext(PointsContext);
   return (
     <PageContainer>
-      <div className="instrucoes-content">
-        <div className="titulo-instrucoes">COMO JOGAR?</div>
-        <div className="conteudo-instrucoes">
-          Essa roda vai fazer você refletir sobre alguns aspectos importantes a
-          serem considerados nos comportamentos e atitudes para o engajamento do
-          paciente, bem como: identificar as potencialidades, recursos e
-          limitações que existem em você para aprimorar ou manter a realidade
-          atual.
-          <br />
-          <br />
-          Ao responder você deve selecionar a alternativa que melhor representa
-          seu comportamento e/ou atitudes atuais para o engajamento do paciente,
-          de acordo com cada situação apresentada.
+      <div className="resultados-content">
+        <div className="titulo-resultados">Resultado!</div>
+        <div className="conteudo-resultados">
+          <PolarArea
+            type
+            data={{
+              labels: [
+                "Acolhimento",
+                "Vínculo",
+                "Escuta ativa",
+                "Cohorte",
+                "Aproximação e empatia",
+                "Pistas de comunicação não verbal",
+                "Diálogos colaborativos",
+              ],
+              datasets: [
+                {
+                  label: "Resultados",
+                  backgroundColor: [
+                    "#f5cb39",
+                    "#ff824d",
+                    "#2196f3",
+                    "#28b874",
+                    "#a058ae",
+                    "#4950ba",
+                    "#45a6b2",
+                  ],
+                  data: [
+                    points.acolhimento,
+                    points.vinculo,
+                    points.escuta_ativa,
+                    points.cohorte,
+                    points.aproximacao_e_empatia,
+                    points.pistas_de_comunicacao_nao_verbal,
+                    points.dialogos_colaborativos,
+                  ],
+                },
+              ],
+            }}
+            options={{
+              responsive: true,
+              legend: {
+                display: true,
+                position: "right",
+              },
+              
+            }}
+          />
         </div>
 
-        <NavLink to="game">
-          <div className="btn-go-instrucoes">OK!</div>
+        <NavLink to="/">
+          <div className="btn-go-resultados">OK!</div>
         </NavLink>
       </div>
     </PageContainer>

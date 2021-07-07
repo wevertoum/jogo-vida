@@ -13,12 +13,14 @@ import {
 import PointsContext from "contexts/PointsContext";
 import React from "react";
 import { useContext } from "react";
+import { useHistory } from "react-router-dom";
 import "./GamePage.less";
 
 interface Props {}
 const GamePage: React.FC<Props> = () => {
   const [formGame] = Form.useForm();
   const { setPoints } = useContext(PointsContext);
+  const history = useHistory();
   return (
     <PageContainer>
       <div className="game-container">
@@ -26,7 +28,10 @@ const GamePage: React.FC<Props> = () => {
         <div className="conteudo-game">
           <Steps
             form={formGame}
-            onComplete={(values: Models.Points) => setPoints(values)}
+            onComplete={(values: Models.Points) => {
+              setPoints(values);
+              history.push("/resultado");
+            }}
             childrens={[
               {
                 children: <StepFase1 />,
@@ -57,7 +62,7 @@ const GamePage: React.FC<Props> = () => {
                 label: "FASE 7",
               },
             ]}
-          ></Steps>
+          />
         </div>
       </div>
     </PageContainer>

@@ -5,5 +5,5 @@ const encode = (value: string) => {
 const decode = (value: string) => {
   return decodeURIComponent(escape(atob(value)));
 };
-
-export default { encode, decode };
+const safeBase64 = { encode, decode };
+export default safeBase64;
