@@ -11,6 +11,7 @@ import InstrucoesPage from "pages/InstrucoesPage";
 import GamePage from "pages/GamePage";
 import ResultadoPage from "pages/ResultadoPage";
 import NotFoundPage from "../pages/NotFoundPage";
+import MensagensPage from "pages/MensagensPage";
 
 const MainRouter: React.FC = () => {
   return (
@@ -28,6 +29,9 @@ const MainRouter: React.FC = () => {
           </Route>
           <Route path="/resultado">
             <ResultadoPage />
+          </Route>
+          <Route path="/mensagens">
+            <MensagensPage />
           </Route>
 
           <Route path="/*">

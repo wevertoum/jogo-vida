@@ -1,12 +1,12 @@
 @import "~styles/variables.less";
-.resultados-content {
+.mensagens-content {
   display: flex;
   height: 100%;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 
-  .titulo-resultados {
+  .titulo-mensagens {
     font-size: 50px;
     text-shadow: 3px 3px @secondary-color;
     text-align: center;
@@ -32,18 +32,46 @@
     }
   }
 
-  .conteudo-resultados {
+  .conteudo-mensagens {
     width: 30em;
     padding: 32px;
-    height: fit-content;
+    height: 30em;
     font-size: 20px;
     display: flex;
     justify-content: center;
     border-radius: 20px;
     align-items: center;
     justify-content: center;
+    background-color: #fff;
+
+    .text-animation {
+      font-size: 50px;
+      font-weight: 600;
+      opacity: 0;
+      text-transform: uppercase;
+      animation: fade 1000ms ease-in-out forwards;
+    }
+
+    @keyframes fade {
+      0% {
+        top: 10px;
+        left: 10px;
+        filter: blur(15px);
+        opacity: 0;
+      }
+      50% {
+        filter: blur(10px);
+        opacity: 0.9;
+      }
+      100% {
+        top: 0px;
+        left: 0px;
+        filter: blur(0px);
+        opacity: 1;
+      }
+    }
   }
-  .btn-go-resultados {
+  .btn-go-mensagens {
     width: 300px;
     height: 100px;
     display: flex;

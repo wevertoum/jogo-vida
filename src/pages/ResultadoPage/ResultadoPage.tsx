@@ -55,12 +55,11 @@ const ResultadoPage: React.FC<Props> = () => {
                 display: true,
                 position: "right",
               },
-              
             }}
           />
         </div>
 
-        <NavLink to="/">
+        <NavLink to="/mensagens">
           <div className="btn-go-resultados">OK!</div>
         </NavLink>
       </div>
