@@ -56,9 +56,11 @@ const Steps: React.FC<Props> = ({
 
   return (
     <div className="steps-container">
-      <Typography.Title>{currentStep.label}</Typography.Title>
+      <Typography.Title className="steps-title">
+        {currentStep.label}
+      </Typography.Title>
       <div className="steps-content">
-        <Progress percent={percent} showInfo={false} />
+        <Progress percent={percent} status="active" showInfo={false} />
         {index && (
           <Form
             initialValues={valuesForm}
