@@ -1,18 +1,81 @@
-.titulo-page-container {
-  top: 0;
-  height: 80px;
-  width: 100%;
-  background-color: @primary-color;
-  text-shadow: 3px 3px #ad6412;
-  text-align: center;
-  color: #fff;
+.main-content-game-background {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 26px;
+  height: 100%;
+  position: relative;
+  background-image: url("../../../assets/images/background.svg");
+
+  .titulo-page-container {
+    font-size: 50px;
+    text-shadow: 3px 3px @secondary-color;
+    color: #fff;
+    top: 0;
+    height: 100px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media screen and (max-width: 800px) {
+      font-size: 40px;
+    }
+    @media screen and (max-width: 640px) {
+      font-size: 35px;
+      text-shadow: 3px 3px @primary-color;
+    }
+    @media screen and (max-width: 600px) {
+      font-size: 30px;
+    }
+    @media screen and (max-width: 500px) {
+      font-size: 25px;
+    }
+    @media screen and (max-width: 380px) {
+      font-size: 20px;
+    }
+    @media screen and (max-width: 310px) {
+      font-size: 15px;
+    }
+  }
+
+  .children-content {
+    display: flex;
+    flex: 1;
+    background-color: red;
+  }
 }
 
-.children-content {
+.btn-go {
+  width: 300px;
+  height: 100px;
   display: flex;
-  flex: 1;
+  justify-content: center;
+  background-color: #fff;
+  box-shadow: 5px 5px 0px #d9d9d9, -5px -5px 0px #ffffff;
+  color: @secondary-color;
+  font-size: 30px;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.pergunta-text {
+  color: #fff;
+  text-shadow: 3px 3px @secondary-color;
+  font-size: 30px;
+}
+
+.ant-radio-group {
+  margin-top: 24px;
+
+  .ant-radio-wrapper {
+    margin: 8px 0px;
+  }
+
+  .ant-radio-wrapper > span:nth-child(2) {
+    font-size: 1.5em;
+    color: #1d1b1b;
+    text-shadow: 2px 1px #fff;
+  }
 }

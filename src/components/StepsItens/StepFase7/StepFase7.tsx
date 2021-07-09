@@ -6,7 +6,7 @@ import defaultFormRules from "utils/defaultFormRules";
 const StepFase7: React.FC = () => {
   return (
     <>
-      <h2>
+      <h2 className="pergunta-text">
         Quando estou com o usuário ou familiar, durante nossas conversas
         geralmente...
       </h2>
@@ -14,7 +14,7 @@ const StepFase7: React.FC = () => {
         <Radio.Group>
           <Space direction="vertical">
             <Radio value={0}>
-              faço explicações técnicas, mas não estabeleço outras conversas
+              faço explicações técnicas, mas não estabeleço outras conversasag
             </Radio>
             <Radio value={25}>
               faço conversas para orientar e explicar algo para as outras

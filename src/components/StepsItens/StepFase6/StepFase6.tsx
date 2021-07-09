@@ -6,11 +6,14 @@ import defaultFormRules from "utils/defaultFormRules";
 const StepFase6: React.FC = () => {
   return (
     <>
-      <h2>
+      <h2 className="pergunta-text">
         Na interação com o usuário ou familiar, ao perceber algumas pistas de
         comunicação não verbal, eu geralmente tenho a tendência de...
       </h2>
-      <Form.Item name="pistas_de_comunicacao_nao_verbal" rules={defaultFormRules}>
+      <Form.Item
+        name="pistas_de_comunicacao_nao_verbal"
+        rules={defaultFormRules}
+      >
         <Radio.Group>
           <Space direction="vertical">
             <Radio value={0}>

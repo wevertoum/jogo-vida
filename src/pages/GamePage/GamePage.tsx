@@ -24,7 +24,6 @@ const GamePage: React.FC<Props> = () => {
   return (
     <PageContainer>
       <div className="game-container">
-        <div className="titulo-game">VAMOS COMEÇAR</div>
         <div className="conteudo-game">
           <Steps
             form={formGame}

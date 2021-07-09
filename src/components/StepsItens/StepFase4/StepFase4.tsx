@@ -6,7 +6,7 @@ import defaultFormRules from "utils/defaultFormRules";
 const StepFase4: React.FC = () => {
   return (
     <>
-      <h2>
+      <h2 className="pergunta-text">
         Durante a conversação com o usuário ou familiar, tenho a postura de...
       </h2>
       <Form.Item name="cohorte" rules={defaultFormRules}>

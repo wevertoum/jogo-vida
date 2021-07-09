@@ -1,5 +1,5 @@
 @import "~styles/variables.less";
-.resultados-content {
+.resultados-container {
   display: flex;
   height: 100%;
   flex-direction: column;
@@ -10,6 +10,7 @@
     font-size: 50px;
     text-shadow: 3px 3px @secondary-color;
     text-align: center;
+    color: #fff;
 
     @media screen and (max-width: 800px) {
       font-size: 40px;
@@ -32,17 +33,36 @@
     }
   }
 
-  .conteudo-resultados {
-    width: 30em;
-    padding: 32px;
-    height: fit-content;
-    font-size: 20px;
+  .resultados-content {
     display: flex;
-    justify-content: center;
-    border-radius: 20px;
+    flex-direction: row;
+    @media screen and (max-width: 800px) {
+      flex-direction: column;
+    }
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
+    width: 60vw;
+    height: fit-content;
+
+    .infos-resultados {
+      .item-feedback {
+        color: #fff;
+        text-shadow: 3px 3px @secondary-color;
+      }
+    }
+    .grafico-resultados {
+      width: 30em;
+      padding: 32px;
+      height: fit-content;
+      font-size: 20px;
+      display: flex;
+      justify-content: center;
+      border-radius: 20px;
+      align-items: center;
+      justify-content: center;
+    }
   }
+
   .btn-go-resultados {
     width: 300px;
     height: 100px;

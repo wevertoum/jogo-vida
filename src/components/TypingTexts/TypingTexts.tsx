@@ -3,18 +3,12 @@ import ReactTypingEffect from "react-typing-effect";
 import "./TypingTexts.less";
 
 interface Props {
-  words: string[];
+  word: string;
 }
-const TypingTexts: React.FC<Props> = ({ words }) => {
+const TypingTexts: React.FC<Props> = ({ word }) => {
   return (
     <div className="main-about">
-      <ReactTypingEffect
-        eraseSpeed={100}
-        eraseDelay={500}
-        speed={300}
-        typingDelay={500}
-        text={words}
-      />
+      <ReactTypingEffect eraseDelay={200000} speed={50} text={word} />
     </div>
   );
 };

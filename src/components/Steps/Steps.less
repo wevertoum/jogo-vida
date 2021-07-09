@@ -5,7 +5,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 80vh;
+  width: 60vw;
+  height: 80vh;
 
   @media screen and (max-width: 700px) {
     width: 80%;
@@ -16,12 +17,10 @@
     margin-bottom: 32px;
     text-align: center;
     text-shadow: 3px 3px @secondary-color;
+    color: #fff;
   }
 
   .steps-content {
-    background: #f0f3f3;
-    box-shadow: 20px -20px 60px #41b3c9, -20px 20px 60px #57f3ff;
-    border-radius: 32px;
     height: 60vh;
     max-height: 60vh;
     width: 100%;
@@ -50,5 +49,5 @@
 }
 
 .ant-progress-bg {
-  background: var(--primary-color) !important;
+  background: @secondary-color !important;
 }

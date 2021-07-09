@@ -39,7 +39,7 @@ const MensagensPage: React.FC<Props> = () => {
         </div>
 
         <NavLink to="/">
-          <div className="btn-go-mensagens">HOME</div>
+          <div className="btn-go">HOME</div>
         </NavLink>
       </div>
     </PageContainer>

@@ -6,7 +6,7 @@ import defaultFormRules from "utils/defaultFormRules";
 const StepFase3: React.FC = () => {
   return (
     <>
-      <h2>
+      <h2 className="pergunta-text">
         Quando o usuário ou o familiar esta se expressando sobre suas
         queixas/demandas/dificuldades, eu faço...
       </h2>
