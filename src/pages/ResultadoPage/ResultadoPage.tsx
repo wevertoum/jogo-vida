@@ -13,6 +13,7 @@ import useRerenderWrapper from "hooks/useRerenderWrapper";
 import { Howl } from "howler";
 import { PauseCircleOutlined, PlayCircleOutlined } from "@ant-design/icons";
 import useMountEffect from "hooks/lifecycle/useMountEffect";
+import useUnmountEffect from "hooks/lifecycle/useUnmountEffect";
 
 const arrayDeFrases = [
   "Como você se sentiu depois dessa construção (a roda)?",
@@ -54,6 +55,10 @@ const ResultadoPage: React.FC<Props> = () => {
     []
   );
 
+  useUnmountEffect(() => {
+    audio.stop();
+  });
+
   return (
     <PageContainer>
       {result ? (
@@ -74,8 +79,14 @@ const ResultadoPage: React.FC<Props> = () => {
                   return 0;
                 })
                 .map(([item, nota], i) => (
-                  <h2 className="item-feedback" key={i}>
-                    {labelsResult[item]}: {nota}%
+                  <h2
+                    style={{
+                      color: `${labelsResult[item].color}`,
+                    }}
+                    className="item-feedback"
+                    key={i}
+                  >
+                    {labelsResult[item].nome}: {nota}%
                   </h2>
                 ))}
             </div>

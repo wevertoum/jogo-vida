@@ -14,7 +14,7 @@ const StepFase7: React.FC = () => {
         <Radio.Group>
           <Space direction="vertical">
             <Radio value={0}>
-              faço explicações técnicas, mas não estabeleço outras conversasag
+              faço explicações técnicas, mas não estabeleço outras conversas
             </Radio>
             <Radio value={25}>
               faço conversas para orientar e explicar algo para as outras
