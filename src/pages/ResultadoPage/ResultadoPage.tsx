@@ -4,7 +4,7 @@ import React, { useMemo, useState } from "react";
 import Fade from "react-reveal/Fade";
 
 import { NavLink } from "react-router-dom";
-import { PolarArea } from "react-chartjs-2";
+import ReactEcharts from "echarts-for-react";
 import "./ResultadoPage.less";
 import labelsResult from "utils/labels/labelsResult";
 import { Button } from "antd";
@@ -63,6 +63,161 @@ const ResultadoPage: React.FC<Props> = () => {
     audio.stop();
   });
 
+  const data = [
+    {
+      value: points.acolhimento,
+      name: "Acolhimento",
+      itemStyle: {
+        normal: {
+          color: "#f5cb39",
+        },
+      },
+    },
+    {
+      value: points.vinculo,
+      name: "Vínculo",
+      itemStyle: {
+        normal: {
+          color: "#ff824d",
+        },
+      },
+    },
+    {
+      value: points.escuta_ativa,
+      name: "Escuta ativa",
+      itemStyle: {
+        normal: {
+          color: "#2196f3",
+        },
+      },
+    },
+    {
+      value: points.cohorte,
+      name: "Cohorte",
+      itemStyle: {
+        normal: {
+          color: "#28b874",
+        },
+      },
+    },
+    {
+      value: points.aproximacao_e_empatia,
+      name: "Aproximação e empatia",
+      itemStyle: {
+        normal: {
+          color: "#a058ae",
+        },
+      },
+    },
+    {
+      value: points.pistas_de_comunicacao_nao_verbal,
+      name: "Pistas de comunicação não verbal",
+      itemStyle: {
+        normal: {
+          color: "#4950ba",
+        },
+      },
+    },
+    {
+      value: points.dialogos_colaborativos,
+      name: "Diálogos colaborativos",
+      itemStyle: {
+        normal: {
+          color: "#45a6b2",
+        },
+      },
+    },
+  ];
+
+  let option = {
+    backgroundColor: "rgb(43, 51, 59)",
+    toolbox: {
+      show: true,
+      feature: {
+        mark: {
+          show: true,
+        },
+        magicType: {
+          show: true,
+          type: ["pie", "funnel"],
+        },
+        restore: false,
+        saveAsImage: {
+          show: true,
+          title: "Salvar a roda",
+        },
+      },
+    },
+    graphic: [
+      {
+        type: "group",
+        rotation: Math.PI / 4,
+        bounding: "raw",
+        right: 200,
+        bottom: 100,
+        z: 100,
+      },
+      {
+        type: "group",
+        left: "0",
+        top: "bottom",
+      },
+    ],
+    tooltip: {
+      trigger: "item",
+    },
+    title: {
+      text: "Roda do engajamento",
+      left: "center",
+      top: 20,
+      textStyle: {
+        color: "#fff",
+        fontSize: 25,
+      },
+    },
+    calculable: true,
+    legend: false,
+    series: [
+      {
+        type: "pie",
+        animationDuration: 2000,
+        animationEasing: "quarticInOut",
+        radius: [10, 150],
+        avoidLabelOverlap: false,
+        startAngle: 90,
+        hoverOffset: 5,
+        center: ["50%", "50%"],
+        roseType: "area",
+        selectedMode: "multiple",
+        label: {
+          normal: {
+            show: true,
+          },
+          emphasis: {
+            show: true,
+          },
+        },
+        labelLine: {
+          normal: {
+            show: true,
+            smooth: false,
+            length: 20,
+            length2: 10,
+          },
+          emphasis: {
+            show: true,
+          },
+        },
+        data: data,
+      },
+    ],
+  };
+
+  const style = {
+    height: "500px",
+    width: "1000px",
+  };
+
   return (
     <PageContainer>
       {result ? (
@@ -95,58 +250,10 @@ const ResultadoPage: React.FC<Props> = () => {
                 ))}
             </div>
             <div className="grafico-resultados">
-              <PolarArea
-                type
-                data={{
-                  labels: [
-                    "Acolhimento",
-                    "Vínculo",
-                    "Escuta ativa",
-                    "Cohorte",
-                    "Aproximação e empatia",
-                    "Pistas de comunicação não verbal",
-                    "Diálogos colaborativos",
-                  ],
-                  datasets: [
-                    {
-                      label: "Resultados",
-                      backgroundColor: [
-                        "#f5cb39",
-                        "#ff824d",
-                        "#2196f3",
-                        "#28b874",
-                        "#a058ae",
-                        "#4950ba",
-                        "#45a6b2",
-                      ],
-                      data: [
-                        points.acolhimento,
-                        points.vinculo,
-                        points.escuta_ativa,
-                        points.cohorte,
-                        points.aproximacao_e_empatia,
-                        points.pistas_de_comunicacao_nao_verbal,
-                        points.dialogos_colaborativos,
-                      ],
-                    },
-                  ],
-                }}
-                options={{
-                  responsive: true,
-                  plugins: {
-                    legend: {
-                      display: false,
-                    },
-
-                    tooltip: {
-                      callbacks: {
-                        labelTextColor: function (context: any) {
-                          return "#ffffff";
-                        },
-                      },
-                    },
-                  },
-                }}
+              <ReactEcharts
+                option={option}
+                style={style}
+                className="pie-chart"
               />
             </div>
           </div>
