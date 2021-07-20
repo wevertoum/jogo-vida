@@ -1,6 +1,5 @@
 import PageContainer from "components/PageContainer/TypingTexts";
-import PointsContext from "contexts/PointsContext";
-import React, { useContext, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 // @ts-ignore
 import Fade from "react-reveal/Fade";
 
@@ -14,6 +13,7 @@ import { Howl } from "howler";
 import { PauseCircleOutlined, PlayCircleOutlined } from "@ant-design/icons";
 import useMountEffect from "hooks/lifecycle/useMountEffect";
 import useUnmountEffect from "hooks/lifecycle/useUnmountEffect";
+import useLocalStorage from "hooks/useLocalStorage";
 
 const arrayDeFrases = [
   "Como você se sentiu depois dessa construção (a roda)?",
@@ -25,7 +25,10 @@ const arrayDeFrases = [
 
 interface Props {}
 const ResultadoPage: React.FC<Props> = () => {
-  const { points } = useContext(PointsContext);
+  const [points] = useLocalStorage<Models.Points>(
+    "pontuacao",
+    {} as Models.Points
+  );
   const [result, setResult] = useState(true);
   const [playing, setPlaying] = useState(false);
   const [fraseAtual, setFraseAtual] = useState(arrayDeFrases[0]);
@@ -51,6 +54,7 @@ const ResultadoPage: React.FC<Props> = () => {
         onplay: () => setPlaying(true),
         onpause: () => setPlaying(false),
         loop: true,
+        volume: 0.3,
       }),
     []
   );

@@ -10,16 +10,18 @@ import {
   StepFase6,
   StepFase7,
 } from "components/StepsItens";
-import PointsContext from "contexts/PointsContext";
+import useLocalStorage from "hooks/useLocalStorage";
 import React from "react";
-import { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import "./GamePage.less";
 
 interface Props {}
 const GamePage: React.FC<Props> = () => {
   const [formGame] = Form.useForm();
-  const { setPoints } = useContext(PointsContext);
+  const [, setPoints] = useLocalStorage<Models.Points>(
+    "pontuacao",
+    {} as Models.Points
+  );
   const history = useHistory();
   return (
     <PageContainer>
