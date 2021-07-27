@@ -30,7 +30,7 @@ const StepFase6: React.FC = () => {
               do outro
             </Radio>
             <Radio value={100}>
-              ser continente a expressão não verbal do outro
+              ser empático(a) à expressão não verbal do outro.
             </Radio>
           </Space>
         </Radio.Group>

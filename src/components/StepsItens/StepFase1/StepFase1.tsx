@@ -23,7 +23,7 @@ const StepFase1: React.FC = () => {
             <Radio value={50}>escuto atento as queixas/demandas do outro</Radio>
             <Radio value={75}>escuto fazendo perguntas para entender</Radio>
             <Radio value={100}>
-              escuto com curiosidade (atitude de não saber)
+              escuto com curiosidade (interesse em entender verdadeiramente)
             </Radio>
           </Space>
         </Radio.Group>

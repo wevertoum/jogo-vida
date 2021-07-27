@@ -13,10 +13,7 @@ const BoasVindasPage: React.FC<Props> = () => {
       <div className="boas-vindas-content">
         <Fade right>
           <div className="conteudo-bem-vindo">
-            <TypingTexts
-              word=" Você já refletiu sobre seus comportamentos e atitudes no engajamento
-          do paciente às tecnologias digitais em saúde?"
-            />
+            <TypingTexts word="Você já refletiu sobre seus comportamentos e atitudes quando atende/conversa com os usuários dos serviços de saúde?" />
           </div>
         </Fade>
 

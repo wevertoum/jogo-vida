@@ -39,7 +39,7 @@ const ResultadoPage: React.FC<Props> = () => {
       setInterval(() => {
         setFraseAtual(word);
         rerender();
-      }, (i + 1) * 4000)
+      }, (i + 1) * 6000)
     );
   };
 
